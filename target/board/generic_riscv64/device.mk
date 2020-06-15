@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The Android Open Source Project
+# Copyright (C) 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-# Don't modify this file - It's just an alias!
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_rv64.mk)
-
-PRODUCT_NAME := sdk
+# Adjust the Dalvik heap to be appropriate for a tablet.
+$(call inherit-product-if-exists, frameworks/base/build/tablet-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)

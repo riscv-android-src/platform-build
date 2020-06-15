@@ -73,9 +73,11 @@ PRODUCT_COPY_FILES += \
 # Support addtional P vendor interface
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 
+#mj-debug: disable because of compile error
+#PRODUCT_PACKAGES += \
+    messaging \
 # More AOSP packages
 PRODUCT_PACKAGES += \
-    messaging \
     PhotoTable \
     WAPPushManager \
     WallpaperPicker \

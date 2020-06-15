@@ -8,7 +8,7 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
               Selects <product_name> as the product to build, and <build_variant> as the variant to
               build, and stores those selections in the environment to be read by subsequent
               invocations of 'm' etc.
-- tapas:      tapas [<App1> <App2> ...] [arm|x86|mips|arm64|x86_64|mips64] [eng|userdebug|user]
+- tapas:      tapas [<App1> <App2> ...] [arm|x86|mips|arm64|x86_64|mips64|riscv64] [eng|userdebug|user]
 - croot:      Changes directory to the top of the tree, or a subdirectory thereof.
 - m:          Makes from the top of the tree.
 - mm:         Builds all of the modules in the current directory, but not their dependencies.
@@ -217,6 +217,8 @@ function setpaths()
                toolchaindir2=arm/arm-linux-androideabi-$targetgccversion2/bin
             ;;
         mips|mips64) toolchaindir=mips/mips64el-linux-android-$targetgccversion/bin
+            ;;
+        riscv64) toolchaindir=riscv64/riscv64-linux-$targetgccversion/bin
             ;;
         *)
             echo "Can't find toolchain for unknown architecture: $ARCH"
@@ -715,6 +717,7 @@ function tapas()
       arm64)  product=aosp_arm64;;
       x86_64) product=aosp_x86_64;;
       mips64)  product=aosp_mips64;;
+      riscv64)  product=aosp_riscv64;;
     esac
     if [ -z "$variant" ]; then
         variant=eng

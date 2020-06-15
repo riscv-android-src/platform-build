@@ -20,7 +20,8 @@
 # base_vendor.mk.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base_vendor.mk)
 
+#mj-debug: disable because of compiling error
 # /vendor packages
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libaudiopreprocessing \
     libwebrtc_audio_preprocessing \
