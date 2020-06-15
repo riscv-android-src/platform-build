@@ -20,11 +20,14 @@
 # does, use base_product.mk).
 $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
 
+# mj-debug: disable these because of compiling error
+#PRODUCT_PACKAGES += \
+    Gallery2 \
+    Camera2 \
 # /product packages
 PRODUCT_PACKAGES += \
     Browser2 \
     Calendar \
-    Camera2 \
     Contacts \
     DeskClock \
     Gallery2 \

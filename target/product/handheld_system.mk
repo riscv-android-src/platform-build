@@ -31,13 +31,16 @@ $(call inherit-product-if-exists, external/hyphenation-patterns/patterns.mk)
 $(call inherit-product-if-exists, frameworks/base/data/keyboards/keyboards.mk)
 $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
 
+#mj-debug: disabled because of comping error
+#PRODUCT_PACKAGES += \
+    Bluetooth \
+    BluetoothMidiService \
+    BuiltInPrintService \
+
 PRODUCT_PACKAGES += \
     BasicDreams \
     BlockedNumberProvider \
-    Bluetooth \
-    BluetoothMidiService \
     BookmarkProvider \
-    BuiltInPrintService \
     CalendarProvider \
     cameraserver \
     CameraExtensionsProxy \

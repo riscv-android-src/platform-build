@@ -8,7 +8,7 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
               Selects <product_name> as the product to build, and <build_variant> as the variant to
               build, and stores those selections in the environment to be read by subsequent
               invocations of 'm' etc.
-- tapas:      tapas [<App1> <App2> ...] [arm|x86|arm64|x86_64] [eng|userdebug|user]
+- tapas:      tapas [<App1> <App2> ...] [arm|x86|arm64|x86_64|riscv64] [eng|userdebug|user]
               Sets up the build environment for building unbundled apps (APKs).
 - banchan:    banchan <module1> [<module2> ...] [arm|x86|arm64|x86_64] [eng|userdebug|user]
               Sets up the build environment for building unbundled modules (APEXes).
@@ -226,6 +226,8 @@ function setpaths()
             ;;
         arm64) toolchaindir=aarch64/aarch64-linux-android-$targetgccversion/bin;
                toolchaindir2=arm/arm-linux-androideabi-$targetgccversion2/bin
+            ;;
+        riscv64) toolchaindir=riscv64/riscv64-linux-$targetgccversion/bin
             ;;
         *)
             echo "Can't find toolchain for unknown architecture: $ARCH"
@@ -771,6 +773,7 @@ function tapas()
       x86)    product=aosp_x86;;
       arm64)  product=aosp_arm64;;
       x86_64) product=aosp_x86_64;;
+      riscv64)  product=aosp_riscv64;;
     esac
     if [ -z "$variant" ]; then
         variant=eng
