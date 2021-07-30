@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-#mj-debug: disable because of compile error
-#PRODUCT_PACKAGES += \
-    com.android.media.swcodec \
-
 # Base modules and settings for the system partition.
 PRODUCT_PACKAGES += \
     abx \
@@ -37,6 +33,7 @@ PRODUCT_PACKAGES += \
     app_process \
     appwidget \
     atrace \
+    audioserver \
     BackupRestoreConfirmation \
     bcc \
     blank_screen \
@@ -312,13 +309,12 @@ ifeq ($(EMMA_INSTRUMENT),true)
 endif # EMMA_INSTRUMENT
 
 # Host tools to install
-#    ld.mc \
-#    bcc
 PRODUCT_HOST_PACKAGES += \
     BugReport \
     adb \
     art-tools \
     atest \
+    bcc \
     bit \
     e2fsck \
     fastboot \
@@ -327,6 +323,7 @@ PRODUCT_HOST_PACKAGES += \
     icu_tzdata.dat_host_tzdata_apex \
     idmap2 \
     incident_report \
+    ld.mc \
     lpdump \
     mdnsd \
     minigzip \

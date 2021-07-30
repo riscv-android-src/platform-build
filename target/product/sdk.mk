@@ -16,6 +16,6 @@
 
 # Don't modify this file - It's just an alias!
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_rv64.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_armv7.mk)
 
 PRODUCT_NAME := sdk
