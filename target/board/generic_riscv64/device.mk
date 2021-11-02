@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
-# Adjust the Dalvik heap to be appropriate for a tablet.
-$(call inherit-product-if-exists, frameworks/base/build/tablet-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
+PRODUCT_BUILD_RECOVERY_IMAGE := false
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+

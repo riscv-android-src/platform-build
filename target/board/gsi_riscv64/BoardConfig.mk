@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2020 The Android Open Source Project
+# Copyright (C) 2019 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,16 +13,18 @@
 # limitations under the License.
 #
 
-PRODUCT_SOONG_NAMESPACES += device/generic/goldfish # for libwifi-hal-emu
-PRODUCT_SOONG_NAMESPACES += device/generic/goldfish-opengl # for goldfish deps.
+include build/make/target/board/BoardConfigGsiCommon.mk
 
-# Cuttlefish has GKI kernel prebuilts, so use those for the GKI boot.img.
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := kernel/prebuilts/5.4/riscv64/kernel-5.4-lz4
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+TARGET_ARCH := riscv64
+TARGET_ARCH_VARIANT := riscv64
+TARGET_CPU_ABI := lp64
+TARGET_CPU_VARIANT := generic
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+TARGET_2ND_ARCH_VARIANT := riscv64
+TARGET_2ND_CPU_VARIANT := generic
+
+# TODO(b/111434759, b/111287060) SoC specific hacks
+BOARD_ROOT_EXTRA_SYMLINKS += /vendor/lib/dsp:/dsp
+BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
+BOARD_ROOT_EXTRA_SYMLINKS += /vendor/firmware_mnt:/firmware
 

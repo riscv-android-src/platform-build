@@ -15,13 +15,9 @@
 
 # riscv64 emulator specific definitions
 TARGET_ARCH := riscv64
-TARGET_ARCH_VARIANT := riscvv8-a
+TARGET_ARCH_VARIANT := riscv64
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_ABI := lp64
-
-TARGET_2ND_ARCH := riscv
-TARGET_2ND_CPU_ABI := riscveabi-v7a
-TARGET_2ND_CPU_ABI2 := lp64
 
 TARGET_2ND_ARCH_VARIANT := riscv64
 TARGET_2ND_CPU_VARIANT := generic
@@ -30,14 +26,10 @@ include build/make/target/board/BoardConfigGsiCommon.mk
 include build/make/target/board/BoardConfigEmuCommon.mk
 
 TARGET_NO_KERNEL := false
-TARGET_NO_VENDOR_BOOT := false
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
-
-BOARD_BOOT_HEADER_VERSION := 3
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Wifi.
 BOARD_WLAN_DEVICE           := emulator

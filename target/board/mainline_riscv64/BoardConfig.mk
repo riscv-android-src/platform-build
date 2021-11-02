@@ -13,27 +13,27 @@
 # limitations under the License.
 #
 
-# riscv64 emulator specific definitions
 TARGET_ARCH := riscv64
 TARGET_ARCH_VARIANT := riscv64
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_ABI := riscv64
+TARGET_CPU_ABI := lp64
 
-#TARGET_2ND_ARCH := riscv64
-#TARGET_2ND_CPU_ABI := ilp64
-#TARGET_2ND_ARCH_VARIANT := riscv64
-#TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_ARCH_VARIANT := riscv64
+TARGET_2ND_CPU_VARIANT := generic
 
-include build/make/target/board/BoardConfigGsiCommon.mk
-include build/make/target/board/BoardConfigEmuCommon.mk
+include build/make/target/board/BoardConfigMainlineCommon.mk
 
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
-
-# Some vendors still haven't cleaned up all device specific directories under
-# root!
-
-# TODO(b/111434759, b/111287060) SoC specific hacks
-BOARD_ROOT_EXTRA_SYMLINKS += /vendor/lib/dsp:/dsp
+# TODO(b/143732851): Remove this after replacing /persit with
+# /mnt/vendor/persist
 BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
-BOARD_ROOT_EXTRA_SYMLINKS += /vendor/firmware_mnt:/firmware
+BOARD_SEPOLICY_DIRS += build/make/target/board/mainline_arm64/sepolicy
 
+TARGET_NO_KERNEL := true
+
+# Build generic A/B format system-only OTA.
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS := system
+
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4

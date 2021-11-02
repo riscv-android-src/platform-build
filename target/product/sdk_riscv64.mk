@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 The Android Open Source Project
+# Copyright (C) 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,16 +14,8 @@
 # limitations under the License.
 #
 
-PRODUCT_SOONG_NAMESPACES += device/generic/goldfish # for libwifi-hal-emu
-PRODUCT_SOONG_NAMESPACES += device/generic/goldfish-opengl # for goldfish deps.
+# Don't modify this file - It's just an alias!
 
-# Cuttlefish has GKI kernel prebuilts, so use those for the GKI boot.img.
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := kernel/prebuilts/5.4/riscv64/kernel-5.4-lz4
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_riscv64.mk)
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
+PRODUCT_NAME := sdk_riscv64
