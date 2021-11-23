@@ -23,8 +23,3 @@ TARGET_CPU_VARIANT := generic
 TARGET_2ND_ARCH_VARIANT := riscv64
 TARGET_2ND_CPU_VARIANT := generic
 
-# TODO(b/111434759, b/111287060) SoC specific hacks
-BOARD_ROOT_EXTRA_SYMLINKS += /vendor/lib/dsp:/dsp
-BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
-BOARD_ROOT_EXTRA_SYMLINKS += /vendor/firmware_mnt:/firmware
-
