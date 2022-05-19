@@ -15,13 +15,8 @@
 
 include build/make/target/board/BoardConfigModuleCommon.mk
 
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH := riscv64
+TARGET_ARCH_VARIANT := riscv64
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI := rv64gc
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
