@@ -41,9 +41,8 @@ ifeq ($(LOCAL_FORCE_STATIC_EXECUTABLE),true)
   my_global_sanitize_diag := $(filter-out integer_overflow,$(my_global_sanitize_diag))
 endif
 
-# FIXME:RISC-V
 # Disable global CFI in excluded paths
-#ifneq ($(filter cfi, $(my_global_sanitize)),)
+ifneq ($(filter cfi, $(my_global_sanitize)),)
   combined_exclude_paths := $(CFI_EXCLUDE_PATHS) \
                             $(PRODUCT_CFI_EXCLUDE_PATHS)
 
@@ -52,7 +51,7 @@ endif
     my_global_sanitize := $(filter-out cfi,$(my_global_sanitize))
     my_global_sanitize_diag := $(filter-out cfi,$(my_global_sanitize_diag))
   endif
-#endif
+endif
 
 # Disable global memtag_heap in excluded paths
 ifneq ($(filter memtag_heap, $(my_global_sanitize)),)
@@ -156,12 +155,11 @@ ifeq ($(filter memtag_heap, $(my_sanitize)),)
   endif
 endif
 
-# FIXME:RISC-V
 # If CFI is disabled globally, remove it from my_sanitize.
-#ifeq ($(strip $(ENABLE_CFI)),false)
+ifeq ($(strip $(ENABLE_CFI)),false)
   my_sanitize := $(filter-out cfi,$(my_sanitize))
   my_sanitize_diag := $(filter-out cfi,$(my_sanitize_diag))
-#endif
+endif
 
 # Also disable CFI if ASAN is enabled.
 ifneq ($(filter address,$(my_sanitize)),)
