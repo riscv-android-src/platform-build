@@ -69,9 +69,7 @@ PRODUCT_PACKAGES += \
     shell_and_utilities_vendor \
 
 # Base module when shipping api level is less than or equal to 29
-#PRODUCT_PACKAGES_SHIPPING_API_LEVEL_29 += \
-#FIXME workaround for PRODUCT_SHIPPING_API_LEVEL build error
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES_SHIPPING_API_LEVEL_29 += \
     android.hardware.configstore@1.1-service \
     vndservice \
     vndservicemanager \
