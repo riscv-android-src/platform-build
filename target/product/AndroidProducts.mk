@@ -62,6 +62,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/generic_x86.mk \
     $(LOCAL_DIR)/mainline_system_arm64.mk \
     $(LOCAL_DIR)/mainline_system_riscv64.mk \
+    $(LOCAL_DIR)/mainline_system_x86.mk \
     $(LOCAL_DIR)/mainline_system_x86_64.mk \
     $(LOCAL_DIR)/mainline_system_x86_arm.mk \
     $(LOCAL_DIR)/sdk_arm64.mk \
@@ -74,7 +75,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/sdk_phone_x86.mk \
     $(LOCAL_DIR)/sdk_x86_64.mk \
     $(LOCAL_DIR)/sdk_x86.mk \
-    $(LOCAL_DIR)/sdk_rv.mk \
 
 endif
 
