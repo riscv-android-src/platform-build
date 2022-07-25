@@ -75,7 +75,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/sdk_phone_x86.mk \
     $(LOCAL_DIR)/sdk_x86_64.mk \
     $(LOCAL_DIR)/sdk_x86.mk \
-    $(LOCAL_DIR)/sdk_rv.mk \
 
 endif
 
